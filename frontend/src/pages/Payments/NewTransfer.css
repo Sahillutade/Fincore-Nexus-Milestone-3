@@ -1,0 +1,24 @@
+.beneficiary-details {
+  background: #f4f7ff;
+  border-left: 4px solid #24449a;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.beneficiary-details h3 {
+  margin-top: 0;
+  color: #24449a;
+}
+
+.beneficiary-details p {
+  margin: 7px 0;
+}
+
+.transfer-message {
+  background: #e8f5e9;
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}   

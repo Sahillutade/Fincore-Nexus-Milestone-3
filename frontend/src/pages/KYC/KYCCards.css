@@ -1,0 +1,74 @@
+
+.kyc-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    margin-bottom: 35px;
+}
+
+.kyc-card {
+    min-height: 110px;
+    padding: 24px;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    background: #fff;
+    border-radius: 14px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+    transition: 0.2s ease;
+}
+
+.kyc-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.kyc-icon {
+    font-size: 40px;
+    flex-shrink: 0;
+}
+
+.total-icon {
+    color: #28479A;
+}
+
+.verified-icon {
+    color: #198754;
+}
+
+.pending-icon {
+    color: #f59e0b;
+}
+
+.rejected-icon {
+    color: #dc3545;
+}
+
+.kyc-card p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.kyc-card h2 {
+    margin: 5px 0 0;
+    color: #1f2937;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+@media (max-width: 1200px) {
+    .kyc-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .kyc-cards {
+        grid-template-columns: 1fr;
+    }
+}
