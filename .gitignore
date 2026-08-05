@@ -1,0 +1,11 @@
+# IDE
+.vscode/
+
+# Maven
+**/target/
+
+# Eclipse
+bin/
+
+# IntelliJ
+.idea/
