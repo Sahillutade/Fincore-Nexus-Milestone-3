@@ -1,0 +1,136 @@
+.beneficiary-page {
+  padding: 25px;
+}
+
+.beneficiary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.beneficiary-header h1 {
+  margin: 0;
+  color: #1f3f8f;
+}
+
+.beneficiary-header p {
+  color: #666;
+  margin-top: 8px;
+}
+
+.beneficiary-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.add-beneficiary-btn {
+  background: #24449a;
+  color: white;
+  border: none;
+  padding: 11px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.back-payment-btn {
+  background: white;
+  color: #24449a;
+  border: 1px solid #24449a;
+  padding: 11px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.beneficiary-message {
+  background: #e8f5e9;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.beneficiary-form-card,
+.beneficiary-table-card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.beneficiary-form-card h2,
+.beneficiary-table-card h2 {
+  margin-top: 0;
+  color: #1f3f8f;
+}
+
+.beneficiary-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.beneficiary-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.beneficiary-form-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.beneficiary-form-group input {
+  padding: 11px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.save-beneficiary-btn {
+  margin-top: 22px;
+  background: #24449a;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.beneficiary-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.beneficiary-table th {
+  background: #24449a;
+  color: white;
+  text-align: left;
+  padding: 13px;
+}
+
+.beneficiary-table td {
+  padding: 13px;
+  border-bottom: 1px solid #eee;
+}
+
+.no-beneficiaries {
+  text-align: center;
+  color: #777;
+  padding: 30px !important;
+}
+
+.active-status {
+  background: #e8f5e9;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (max-width: 800px) {
+  .beneficiary-form-grid {
+    grid-template-columns: 1fr;
+  }
+}

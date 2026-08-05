@@ -1,0 +1,86 @@
+/* Main KYC Page */
+
+.kyc-page {
+    padding: 35px;
+    background: #f5f7fb;
+    min-height: 100vh;
+}
+
+/* Header */
+
+.kyc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.kyc-header h1 {
+    margin: 0;
+    color: #28479A;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.kyc-header p {
+    margin: 8px 0 0;
+    color: #6b7280;
+    font-size: 17px;
+}
+
+/* Refresh Button */
+
+.refresh-btn {
+    width: 150px;
+    height: 50px;
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #28479A;
+    color: white;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.refresh-btn:hover {
+    background: #1d3679;
+    transform: translateY(-1px);
+}
+
+/* Loading */
+
+.loading {
+    padding: 50px;
+    text-align: center;
+
+    color: #6b7280;
+    font-size: 17px;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .kyc-page {
+        padding: 20px;
+    }
+
+    .kyc-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .kyc-header h1 {
+        font-size: 32px;
+    }
+
+    .refresh-btn {
+        width: 100%;
+    }
+}

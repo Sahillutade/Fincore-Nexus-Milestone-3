@@ -1,0 +1,208 @@
+/* ================================
+   SIDEBAR
+================================ */
+
+.sidebar {
+    width: 250px;
+    min-height: calc(100vh - 72px);
+
+    background: #ffffff;
+
+    border-right: 1px solid #e5e7eb;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 22px 16px;
+
+    box-sizing: border-box;
+}
+
+
+/* ================================
+   MENU HEADING
+================================ */
+
+.sidebar-heading {
+    padding: 0 12px;
+    margin-bottom: 14px;
+}
+
+.sidebar-heading span {
+    color: #9ca3af;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+}
+
+
+/* ================================
+   MENU
+================================ */
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+/* ================================
+   LINKS
+================================ */
+
+.sidebar a {
+    position: relative;
+
+    color: #4b5563;
+
+    text-decoration: none;
+
+    min-height: 48px;
+
+    padding: 0 14px;
+
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* ================================
+   ICON
+================================ */
+
+.sidebar-icon {
+    width: 20px;
+
+    flex-shrink: 0;
+
+    font-size: 16px;
+
+    color: #6b7280;
+
+    transition: 0.2s ease;
+}
+
+
+/* ================================
+   HOVER
+================================ */
+
+.sidebar a:hover {
+    background: #eff4ff;
+
+    color: #1e3a8a;
+
+    transform: translateX(2px);
+}
+
+.sidebar a:hover .sidebar-icon {
+    color: #1e3a8a;
+}
+
+
+/* ================================
+   ACTIVE
+================================ */
+
+.sidebar a.active {
+    background: #1e3a8a;
+
+    color: white;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 4px 10px
+        rgba(30, 58, 138, 0.18);
+}
+
+.sidebar a.active .sidebar-icon {
+    color: white;
+}
+
+
+/* Active indicator */
+
+.sidebar a.active::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    width: 4px;
+    height: 24px;
+
+    background: #60a5fa;
+
+    border-radius: 0 4px 4px 0;
+}
+
+
+/* ================================
+   SETTINGS
+================================ */
+
+.sidebar-bottom {
+    margin-top: auto;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #eeeeee;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        width: 80px;
+
+        padding: 20px 10px;
+    }
+
+    .sidebar-heading {
+        display: none;
+    }
+
+    .sidebar a {
+        justify-content: center;
+
+        padding: 0;
+
+        min-height: 48px;
+    }
+
+    .sidebar a span {
+        display: none;
+    }
+
+    .sidebar-icon {
+        width: auto;
+
+        font-size: 19px;
+    }
+
+    .sidebar a:hover {
+        transform: none;
+    }
+}
