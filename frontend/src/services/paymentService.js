@@ -13,3 +13,8 @@ export const addBeneficiary = (data) =>
 
 export const makeTransfer = (data) =>
   axios.post(`${API_URL}/transfer`, data);
+
+export const createRazorpayOrder = (amount) =>
+  axios.post(`${API_URL}/create-order`, {
+    amount,
+  });

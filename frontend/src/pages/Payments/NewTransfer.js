@@ -7,6 +7,7 @@ import "./NewTransfer.css";
 import {
   getAllBeneficiaries,
   makeTransfer,
+  createRazorpayOrder,
 } from "../../services/paymentService";
 
 import { getAllAccounts } from "../../services/accountService";
@@ -61,6 +62,61 @@ function NewTransfer() {
       String(beneficiary.benId) === formData.beneficiaryId
   );
 
+  const openRazorpay = async (transferData) => {
+    try {
+      const orderResponse = await createRazorpayOrder(transferData);
+
+      const { orderId, amount, currency, key, } = orderResponse.data;
+
+      const options = { key, amount, currency, name: 'FinCore Nexus', description: 'Fund Transfer', order_id: orderId,
+        handler: async function (response) {
+          try {
+            const transferResponse = await makeTransfer(transferData);
+
+            if(transferResponse.data.status === "SUCCESS") {
+              setMessage("Payment and transfer completed successfully.");
+
+              setTimeout(() => {
+                navigate("/payments");
+              }, 1500);
+            }
+            else {
+              setMessage(`Transfer Status: ${transferResponse.data.status}`);
+            }
+          }
+          catch (err) {
+            setMessage("Payment succeeded but transfer failed.");
+            console.error(err);
+          }
+        },
+
+        prefill: {
+          name: "Customer",
+        },
+
+        theme: {
+          color: "#2563eb",
+        },
+
+        modal: {
+          ondismiss: function () {
+            setLoading(false);
+            setMessage("Payment cancelled.");
+          },
+        },
+      };
+
+      const razorpay = new window.Razorpay(options);
+
+      razorpay.open();
+    }
+    catch (err) {
+      console.error(err);
+      setLoading(false);
+      setMessage("Unable to initiate payment.");
+    }
+  };
+
   // Transfer
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -86,17 +142,7 @@ function NewTransfer() {
       setLoading(true);
       setMessage("");
 
-      const response = await makeTransfer(transferData);
-
-      if (response.data.status === "SUCCESS") {
-        setMessage("Transfer completed successfully.");
-
-        setTimeout(() => {
-          navigate("/payments");
-        }, 1000);
-      } else {
-        setMessage(`Transfer status: ${response.data.status}`);
-      }
+      await openRazorpay(transferData);
 
     } catch (error) {
       console.error("Transfer failed:", error);
@@ -106,8 +152,6 @@ function NewTransfer() {
         "Transfer failed. Please try again."
       );
 
-    } finally {
-      setLoading(false);
     }
   };
 
