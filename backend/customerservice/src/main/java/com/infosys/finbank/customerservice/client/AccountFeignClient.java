@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface AccountFeignClient {
 
     @GetMapping("/accounts/customer/{custId}")
-    List<Account> getAccountsByCustomerId(@PathVariable("custId") UUID custId);
+    List<Account> getAccountsByCustomerId(@PathVariable("custId") Long custId);
 
 }

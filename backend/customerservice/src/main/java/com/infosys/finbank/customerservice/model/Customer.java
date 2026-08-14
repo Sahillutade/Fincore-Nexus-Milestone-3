@@ -1,10 +1,10 @@
 package com.infosys.finbank.customerservice.model;
 
 import java.util.List;
-import java.util.UUID;
 
 import com.infosys.finbank.customerservice.client.Account;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,11 +17,14 @@ import jakarta.persistence.Transient;
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID custid;
+    @Column(name = "custid", unique = true, nullable = false)
+    private Long custid;
     
-    private String name;
-    private String address;
+    private String fullName;
+    private String email;
+    private String phoneNumber;
+    private String password;
+    private String profilePhoto;
     private String kycStatus;
 
     @Transient// Ignores this field during H2 database table creation
@@ -29,27 +32,80 @@ public class Customer {
 
     public Customer() {}
 
-    public Customer(String name, String address, String kycStatus) {
-        this.name = name;
-        this.address = address;
+    public Long getCustid() {
+        return custid;
+    }
+
+    public void setCustid(Long custid) {
+        this.custid = custid;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getProfilePhoto() {
+        return profilePhoto;
+    }
+
+    public void setProfilePhoto(String profilePhoto) {
+        this.profilePhoto = profilePhoto;
+    }
+
+    public String getKycStatus() {
+        return kycStatus;
+    }
+
+    public void setKycStatus(String kycStatus) {
         this.kycStatus = kycStatus;
     }
 
-    // Standard Java Getters and Setters
-    public UUID getCustid() { return custid; }
-    public void setCustid(UUID custid) { this.custid = custid; }
+    public List<Account> getAccounts() {
+        return accounts;
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
 
-    public String getAddress() { return address; }
-    public void setAddress(String address) { this.address = address; }
-
-    public String getKycStatus() { return kycStatus; }
-    public void setKycStatus(String kycStatus) { this.kycStatus = kycStatus; }
-
-    // Fixed Getter and Setter Types
-    public List<Account> getAccounts() { return accounts; }
-    public void setAccounts(List<Account> accounts) { this.accounts = accounts; }
+    public Customer(Long custid, String fullName, String email, String phoneNumber, String password,
+            String profilePhoto, String kycStatus, List<Account> accounts) {
+        this.custid = custid;
+        this.fullName = fullName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+        this.profilePhoto = profilePhoto;
+        this.kycStatus = kycStatus;
+        this.accounts = accounts;
+    }
 
 }
